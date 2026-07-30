@@ -7,6 +7,9 @@ node_modules/
 .env.local
 .env.*.local
 
+src/services
+
+
 # Production Build Output
 dist/
 dist-ssr/
