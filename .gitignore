@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Environment Variables & API Key Secrets
+.env
+.env.local
+.env.*.local
+
+# Production Build Output
+dist/
+dist-ssr/
+build/
+*.tsbuildinfo
+
+# Logs & System Generated Files
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+.system_generated/
+
+# Editor & OS Junk
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
