@@ -5,7 +5,7 @@ import { AtsAnalysisResult } from '../types/resume';
 export function getApiKey(): string {
   const envKey = (import.meta as any).env?.VITE_GEMINI_API_KEY || (import.meta as any).env?.GEMINI_API_KEY;
   // Fallback key provided in .env
-  return envKey || 'AIzaSyBzCYOIlY5RHLPozSGkx06oXWF97K25yAU';
+  return '';
 }
 
 /**
@@ -79,8 +79,7 @@ Return a strictly valid JSON object matching the following structure WITHOUT mar
       "impactScore": <number 85-99>
     }
   ]
-  ${
-    jobDescription
+  ${jobDescription
       ? `,
   "targetRoleMatch": {
     "jobTitle": "Target Position",
@@ -89,14 +88,14 @@ Return a strictly valid JSON object matching the following structure WITHOUT mar
     "tailoredTips": [<array of specific tips to align resume with this JD>]
   }`
       : ''
-  }
+    }
 }
 `;
 
   try {
     const response = await model.generateContent(prompt);
     const textResponse = response.response.text();
-    
+
     const jsonString = textResponse
       .replace(/```json/gi, '')
       .replace(/```/g, '')
